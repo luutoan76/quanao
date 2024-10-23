@@ -12,8 +12,8 @@ namespace quanao.Models
         public string dayCreate { get; set; }
         [BsonElement("total")]
         public string total { get; set; }
-        [BsonElement("idPro")]
-        public List<string> idPro { get; set; }
+        [BsonElement("orderItem")]
+        public List<OrderItem> orderItem { get; set; }
         [BsonElement("address")]
         public string address { get; set; }
         [BsonElement("username")]
@@ -22,5 +22,25 @@ namespace quanao.Models
         [BsonElement("status")]
         public string status { get; set; }
 
+    }
+
+    public class OrderItem{
+        [BsonElement("idPro")]
+        public string idPro { get; set; }
+
+        [BsonElement("namePro")]
+        public string namePro { get; set; }
+        [BsonElement("price")]
+        public string price { get; set; }
+
+        [BsonElement("img")]
+        public string img { get; set; }
+        
+        [BsonElement("quantity")]
+        public string quantity { get; set; }
+        [BsonElement("color")]
+        public string color { get; set; }
+        [BsonElement("size")]
+        public string size { get; set; }
     }
 }

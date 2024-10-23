@@ -23,8 +23,8 @@ namespace quanao.Services
         public async Task<Cart> GetAsync(string id) =>
             await _cart.Find(x => x.Id == id).FirstOrDefaultAsync();
         
-        public async Task<List<Cart>> GetAsyncByNameUser(string nameUser) =>
-            await _cart.Find(x => x.nameUser == nameUser).ToListAsync();
+        public async Task<Cart> GetAsyncByNameUser(string nameUser) =>
+            await _cart.Find(x => x.nameUser == nameUser).FirstOrDefaultAsync();
 
         public async Task CreateAsync(Cart cart) =>
             await _cart.InsertOneAsync(cart);

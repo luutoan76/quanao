@@ -19,7 +19,9 @@ namespace quanao.Models
         [BsonElement("img")]
         public List<string> img {get;set;}
         [BsonElement("size")]
-        public string size {get;set;}
+        public List<string> size {get;set;}
+        [BsonElement("color")]
+        public List<string> color {get;set;}
         // thu nghiem
         [BsonElement("like")]
         public string like {get;set;}

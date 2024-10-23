@@ -20,8 +20,8 @@ namespace quanao.Services
         public async Task<List<Review>> GetAsync() =>
             await _review.Find(new BsonDocument()).ToListAsync();
 
-        public async Task<Review> GetAsync(string id) =>
-            await _review.Find(x => x.Id == id).FirstOrDefaultAsync();
+        public async Task<List<Review>> GetAsync(string idPro) =>
+            await _review.Find(x => x.idPro == idPro).ToListAsync();
 
         public async Task CreateAsync(Review review) =>
             await _review.InsertOneAsync(review);

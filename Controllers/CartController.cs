@@ -30,7 +30,7 @@ namespace quanao.Controllers
         }
 
         [HttpGet("byNameUser/{nameUser}")]
-        public async Task<ActionResult<List<Cart>>> GetNameUser(string nameUser)
+        public async Task<ActionResult<Cart>> GetNameUser(string nameUser)
         {
             var cart = await _cartService.GetAsyncByNameUser(nameUser);
             if (cart is null) return NotFound();

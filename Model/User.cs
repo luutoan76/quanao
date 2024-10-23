@@ -20,6 +20,8 @@ namespace quanao.Models
         public string img {get;set;}
         [BsonElement("dateBirth")]
         public string dateBirth {get;set;}
+        [BsonElement("email")]
+        public string email {get;set;}
     }
 
     public class UserLoginDto

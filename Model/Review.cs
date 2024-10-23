@@ -16,6 +16,9 @@ namespace quanao.Models
         public string idPro{get; set; }
         [BsonElement("like")]
         public string like { get; set; }
+
+        [BsonElement("avatar")]
+        public string avatar { get; set; }
         
 
     }

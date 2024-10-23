@@ -8,24 +8,9 @@ namespace quanao.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
-        /*
-        [BsonElement("idPro")]
-        public string idPro { get; set; }
         
-        [BsonElement("namePro")]
-        public string namePro { get; set; }
-
-        [BsonElement("price")]
-        public string price { get; set; }
-        [BsonElement("imageUrl")]
-        public string imageUrl { get; set; }
-
-        [BsonElement("quantity")]
-        public string quantity { get; set; }
-        [BsonElement("nameUser")]
-        public string nameUser { get; set; }*/
-        [BsonElement("idPro")]
-        public List<string> idPro { get; set; }
+        [BsonElement("cartItem")]
+        public List<CartItem> cartItem { get; set; }
         
         [BsonElement("total")]
         public string total { get; set; }
@@ -33,5 +18,25 @@ namespace quanao.Models
         [BsonElement("nameUser")]
         public string nameUser { get; set; }
 
+    }
+
+    public class CartItem{
+        [BsonElement("idPro")]
+        public string idPro { get; set; }
+
+        [BsonElement("namePro")]
+        public string namePro { get; set; }
+        [BsonElement("price")]
+        public string price { get; set; }
+
+        [BsonElement("img")]
+        public string img { get; set; }
+        
+        [BsonElement("quantity")]
+        public string quantity { get; set; }
+        [BsonElement("color")]
+        public string color { get; set; }
+        [BsonElement("size")]
+        public string size { get; set; }
     }
 }

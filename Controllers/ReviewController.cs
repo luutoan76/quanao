@@ -22,25 +22,26 @@ namespace quanao.Controllers
         public async Task<List<Review>> Get() =>
             await _reviewService.GetAsync();
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Review>> Get(string id)
+        [HttpGet("{idPro}")]
+        public async Task<ActionResult<List<Review>>> Get(string idPro)
         {
-            var review = await _reviewService.GetAsync(id);
+            var review = await _reviewService.GetAsync(idPro);
             if (review is null) return NotFound();
             return review;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Review>> Post(string username, string review, string idPro, string like)
+        public async Task<ActionResult<Review>> Post(string username, string review, string idPro, string like, string avatar)
         {
             if(username.IsNullOrEmpty() || review.IsNullOrEmpty()){
-                return BadRequest("Usernam and review are required");
+                return BadRequest("Username and review are required");
             }
             Review userReview = new Review{
                 nameUser = username,
                 review = review,
                 idPro = idPro,
-                like = "0",
+                like = like,
+                avatar = avatar,
             };
             await _reviewService.CreateAsync(userReview);
             return CreatedAtAction(nameof(Get), new { id = userReview.Id }, userReview);

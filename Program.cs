@@ -17,6 +17,7 @@ builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<FavourtieService>();
 builder.Services.AddScoped<ReviewService>();
+builder.Services.AddScoped<VoucherService>();
 
 
 
