@@ -54,3 +54,15 @@
 /Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
 /Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Newtonsoft.Json.dll
 /Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/BCrypt.Net-Next.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/FirebaseAdmin.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Google.Api.Gax.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Google.Api.Gax.Rest.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Google.Apis.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Google.Apis.Auth.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Google.Apis.Core.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/System.CodeDom.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/System.Collections.Immutable.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/System.Management.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/runtimes/win/lib/net7.0/System.Management.dll
+/Users/luuvan/Documents/asp/quanao/bin/Debug/net7.0/Config/quanaodata-ca88137675fa.json

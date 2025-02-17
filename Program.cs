@@ -4,9 +4,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Google.Apis.Auth.OAuth2;
+using FirebaseAdmin;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+string firebaseConfigPath = Path.Combine(builder.Environment.ContentRootPath, "Config", "quanaodata-ca88137675fa.json");
+FirebaseApp.Create(new AppOptions
+{
+    Credential = GoogleCredential.FromFile(firebaseConfigPath),
+});
 // Add services to the container.
 builder.Services.AddSingleton<IMongoClient>(s =>
     new MongoClient(builder.Configuration.GetConnectionString("MongoDb")));
@@ -18,6 +26,7 @@ builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<FavourtieService>();
 builder.Services.AddScoped<ReviewService>();
 builder.Services.AddScoped<VoucherService>();
+builder.Services.AddScoped<AdminService>();
 
 
 

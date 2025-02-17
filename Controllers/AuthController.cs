@@ -14,17 +14,17 @@ namespace quanao.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly AdminService _userService;
         private readonly IConfiguration _configuration;
 
-        public AuthController(UserService userService, IConfiguration configuration)
+        public AuthController(AdminService userService, IConfiguration configuration)
         {
             _userService = userService;
             _configuration = configuration;
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] UserLoginDto loginDto)
+        public async Task<IActionResult> Login([FromBody] AdminLoginDto loginDto)
         {
             var user = await _userService.GetByUsernameAsync(loginDto.Username);
 
@@ -38,7 +38,7 @@ namespace quanao.Controllers
             return Ok(new { success = true, token = token });
         }
 
-        private string GenerateJwtToken(User user)
+        private string GenerateJwtToken(AdminAccount user)
         {
             var jwtKey = _configuration["Jwt:Key"];
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));

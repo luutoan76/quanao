@@ -3,6 +3,10 @@ using quanao.Models;
 using quanao.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Text;
+using FirebaseAdmin.Messaging;
+
 
 namespace quanao.Controllers
 {
@@ -47,9 +51,42 @@ namespace quanao.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(string id, Order order)
         {
-            await _orderService.UpdateAsync(id, order);
-            return NoContent();
+            try
+            {
+                //Update the order in the database
+                await _orderService.UpdateAsync(id, order);
+
+                //Prepare notification data
+                var message = new Message
+                {
+                    Token = "dL4bWuMKSzG6hDdPMkhBOX:APA91bHJo0hO0SoejPf5lGEbc4JNQT24bkkbM_Qhh76qn1ZhRcH94aGpAC7GPxsmbYD0gXcajtscRf-Fc7gt_CsvAM_5stcFTKpttgPZS7nu9iQPDjvpqv4", // Replace with the device token associated with the user
+                    Notification = new Notification
+                    {
+                        Title = $"Order Updated {order.username}",
+                        Body = $"Your order with ID {id} has been updated to status: {order.status}"
+                    },
+                    Data = new Dictionary<string, string>
+                    {
+                        { "orderId", id },
+                        { "status", order.status },
+                        { "username", order.username },
+                    }
+                };
+
+                //Send the notification
+                string response = await FirebaseMessaging.DefaultInstance.SendAsync(message);
+
+                // Return success response
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
+
+
+        
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
