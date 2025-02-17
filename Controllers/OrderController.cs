@@ -59,7 +59,8 @@ namespace quanao.Controllers
                 //Prepare notification data
                 var message = new Message
                 {
-                    Token = "dL4bWuMKSzG6hDdPMkhBOX:APA91bHJo0hO0SoejPf5lGEbc4JNQT24bkkbM_Qhh76qn1ZhRcH94aGpAC7GPxsmbYD0gXcajtscRf-Fc7gt_CsvAM_5stcFTKpttgPZS7nu9iQPDjvpqv4", // Replace with the device token associated with the user
+                    Token = "dL4bWuMKSzG6hDdPMkhBOX:APA91bHJo0hO0SoejPf5lGEbc4JNQT24bkkbM_Qhh76qn1ZhRcH94aGpAC7GPxsmbYD0gXcajtscRf-Fc7gt_CsvAM_5stcFTKpttgPZS7nu9iQPDjvpqv4", 
+                    // Replace with the device token associated with the user
                     Notification = new Notification
                     {
                         Title = $"Order Updated {order.username}",
